@@ -1,7 +1,4 @@
-require_relative 'instance_counter.rb'
-
 module InstanceCounter
-
 
   attr_reader   :instances
   attr_accessor :instances
@@ -13,16 +10,17 @@ module InstanceCounter
 
   module ClassMethods
 
+    @instances = 0
+
     def instances_count
-      @instances ||= 0
       @instances += 1
       puts @instances
     end
 
     def instances
         @instances
-     end
     end
+  end
 
   module InstanceMethods
 
@@ -33,4 +31,3 @@ module InstanceCounter
     end
   end
 end
-
